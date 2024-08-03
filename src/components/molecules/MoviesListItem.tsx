@@ -12,10 +12,6 @@ import {Swipeable} from 'react-native-gesture-handler';
 // Colors
 import {Colors} from '../../../constants/Colors';
 
-// Components
-import SwipeView from '../atoms/SwipeView';
-import MoviesListItemView from './MoviesListItemView';
-
 // Navigation
 import {Moviesy} from '../../navigation/MoviesStackNavigator';
 
