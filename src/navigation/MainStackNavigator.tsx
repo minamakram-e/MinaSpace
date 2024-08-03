@@ -2,12 +2,8 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Pages
-
 import LoginPage from '../components/pages/LoginPage';
-import MobileNumberPage from '../components/pages/MobileNumberPage';
-import PasswordPage from '../components/pages/PasswordPage';
 import SplashPage from '../components/pages/SplashPage';
-// import DrawerPage from '../components/pages/DrawerPage';
 import HomePage from '../components/pages/HomePage';
 
 export type RootStackParamList = {
@@ -39,16 +35,6 @@ const MainStackNavigator = () => {
       <Stack.Screen
         name="HomePage"
         component={HomePage}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="MobileNumber"
-        component={MobileNumberPage}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Password"
-        component={PasswordPage}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

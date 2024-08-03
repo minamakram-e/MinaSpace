@@ -23,14 +23,12 @@ import {UserContext} from '../../context/UserContext';
 import {RootStackParamList} from '../../navigation/MainStackNavigator';
 
 const loginValidationSchema = yup.object().shape({
-  username: yup
-    .string()
-    .matches(/^ivaldi$/, 'Username is not correct, kindly contact Eng. Hatem')
-    .required('Username is required'),
-  password: yup
-    .string()
-    .matches(/^testtest$/, 'Password is not correct, kindly contact Eng. Hatem')
-    .required('Password is required'),
+  username: yup.string(),
+  // .matches(/^ivaldi$/, 'Username is not correct, kindly contact Eng. Hatem')
+  // .required('Username is required'),
+  password: yup.string(),
+  // .matches(/^testtest$/, 'Password is not correct, kindly contact Eng. Hatem')
+  // .required('Password is required'),
 });
 
 type LoginFormProps = {
