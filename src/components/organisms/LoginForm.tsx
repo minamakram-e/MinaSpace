@@ -66,16 +66,7 @@ const LoginForm = ({navigation}: LoginFormProps) => {
       validationSchema={loginValidationSchema}>
       {({errors, handleSubmit, handleChange, values, isValid}) => (
         <View style={styles.content}>
-          <Text
-            style={[
-              styles.boldFont,
-              styles.largeFont,
-              styles.largeTextStyles,
-              styles.whiteText,
-              {marginBottom: 10},
-            ]}>
-            Welcome to{'\n'}Mina Space
-          </Text>
+          <Text style={[styles.welcomeFont]}>Welcome to{'\n'}Mina Space</Text>
           <View>
             <LoginFormField
               type="username"
@@ -111,16 +102,11 @@ const styles = StyleSheet.create({
     rowGap: 20,
     marginBottom: 20,
   },
-  boldFont: {
-    fontFamily: 'Roboto Bold',
-  },
-  largeFont: {
+  welcomeFont: {
+    fontFamily: 'Gemunu Libre Bold',
     fontSize: 40,
-  },
-  largeTextStyles: {
-    lineHeight: 46.88,
-  },
-  whiteText: {
+    lineHeight: 45,
+    marginBottom: 10,
     color: Colors.light.PureWhite,
   },
 });
