@@ -7,28 +7,28 @@ import {Colors} from '../../../constants/Colors';
 // Theme Context
 import {ThemeContext} from '../../context/ThemeContext';
 
-type BeneficiarGridItemProps = {
+type MoviesGridItemProps = {
   image: any;
   firstName: string;
 };
 
-const BeneficiarGridItem = ({image, firstName}: BeneficiarGridItemProps) => {
+const MoviesGridItem = ({image, firstName}: MoviesGridItemProps) => {
   const {theme} = useContext(ThemeContext);
   let activeColors = (Colors as any)[theme.mode];
   console.log('image', image);
   return (
     <Pressable
       style={[
-        styles.beneficiarGridItemContainer,
+        styles.MoviesGridItemContainer,
         {
           backgroundColor: activeColors.PureWhite,
           shadowColor: activeColors.MidnightBlack,
         },
       ]}>
-      <Image source={{uri: image}} style={styles.beneficiarGridItemImage} />
+      <Image source={{uri: image}} style={styles.MoviesGridItemImage} />
       <Text
         style={[
-          styles.beneficiarGridItemName,
+          styles.MoviesGridItemName,
           {
             color: activeColors.DeepInk,
           },
@@ -39,10 +39,10 @@ const BeneficiarGridItem = ({image, firstName}: BeneficiarGridItemProps) => {
   );
 };
 
-export default BeneficiarGridItem;
+export default MoviesGridItem;
 
 const styles = StyleSheet.create({
-  beneficiarGridItemContainer: {
+  MoviesGridItemContainer: {
     borderRadius: 18,
     shadowOffset: {width: 0, height: 0.5},
     shadowOpacity: 0.1,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     padding: 5,
     width: '48%',
   },
-  beneficiarGridItemImage: {
+  MoviesGridItemImage: {
     borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: {width: 2, height: 2},
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
   },
-  beneficiarGridItemName: {
+  MoviesGridItemName: {
     fontFamily: 'Roboto Regular',
     fontSize: 14,
     lineHeight: 16,

@@ -9,10 +9,10 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 // Data
 import {Colors} from '../../../constants/Colors';
-import BeneficiarGridItem from '../molecules/BeneficiarGridItem';
-import BeneficiarListItem from '../molecules/BeneficiarListItem';
+import MoviesGridItem from '../molecules/MoviesGridItem';
+import MoviesListItem from '../molecules/MoviesListItem';
 import TabScreenWrapper from '../organisms/TabScreenWrapper';
-import BeneficiariesListHeader from '../organisms/BeneficiariesListHeader';
+import MoviesListHeader from '../organisms/MoviesListHeader';
 import {clearLoginState} from '../../config/asyncStorage';
 type HomeScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'HomePage'>;
@@ -54,23 +54,21 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
       <View style={styles.screenContent}>
         {isSelectedStyleGrid && (
           <FlatList
-            contentContainerStyle={styles.beneficiariesGridList}
+            contentContainerStyle={styles.MoviesGridList}
             data={moviesList}
             numColumns={2}
             keyExtractor={item => item.imdbID}
             renderItem={({item}) => (
-              <BeneficiarGridItem image={item.Poster} firstName={item.Title} />
+              <MoviesGridItem image={item.Poster} firstName={item.Title} />
             )}
           />
         )}
         {!isSelectedStyleGrid && (
           <FlatList
-            contentContainerStyle={styles.beneficiariesList}
+            contentContainerStyle={styles.MoviesList}
             data={moviesList}
             keyExtractor={item => item.imdbID}
-            renderItem={({item}) => (
-              <BeneficiarListItem beneficiaryItem={item} />
-            )}
+            renderItem={({item}) => <MoviesListItem MoviesyItem={item} />}
           />
         )}
       </View>
@@ -97,9 +95,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
         showNotificationButton={false}
         onBack={() => {}}
         showTabHeader={false}
-        style={styles.beneficiariesListContainer}
+        style={styles.MoviesListContainer}
         isStatusBarTransparent={false}>
-        <BeneficiariesListHeader
+        <MoviesListHeader
           isSelectedStyleGrid={isSelectedStyleGrid}
           setListStyle={() => setIsSelectedStyleGrid(false)}
           setGridStyle={() => setIsSelectedStyleGrid(true)}
@@ -137,7 +135,7 @@ const styles = StyleSheet.create({
     marginRight: 7,
     color: Colors.GrayishSilver,
   },
-  beneficiariesListContainer: {
+  MoviesListContainer: {
     paddingHorizontal: 25,
     paddingVertical: 16,
     flex: 1,
@@ -146,12 +144,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 20,
   },
-  beneficiariesGridList: {
+  MoviesGridList: {
     rowGap: 8,
     justifyContent: 'center',
     padding: 1,
   },
-  beneficiariesList: {
+  MoviesList: {
     rowGap: 10,
     paddingVertical: 5,
   },

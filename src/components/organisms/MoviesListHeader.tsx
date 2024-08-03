@@ -5,32 +5,32 @@ import {StyleSheet, View} from 'react-native';
 import {Colors} from '../../../constants/Colors';
 
 // Components
-import AddBeneficiariesButton from '../molecules/AddBeneficiariesButton';
-import BeneficiariesListStyleButtons from './BeneficiariesListStyleButtons';
+import AddMoviesButton from '../molecules/AddMoviesButton';
+import MoviesListStyleButtons from './MoviesListStyleButtons';
 import BoldTitle from '../atoms/BoldTitle';
 
 // Theme Context
 import {ThemeContext} from '../../context/ThemeContext';
 
-type BeneficiariesListHeaderProps = {
+type MoviesListHeaderProps = {
   isSelectedStyleGrid: boolean;
   setListStyle: () => void;
   setGridStyle: () => void;
 };
 
-const BeneficiariesListHeader = ({
+const MoviesListHeader = ({
   isSelectedStyleGrid,
   setListStyle,
   setGridStyle,
-}: BeneficiariesListHeaderProps) => {
+}: MoviesListHeaderProps) => {
   const {theme} = useContext(ThemeContext);
   let activeColors = (Colors as any)[theme.mode];
 
   return (
-    <View style={styles.beneficiariesListHeader}>
+    <View style={styles.MoviesListHeader}>
       <BoldTitle title="Movies List" color={activeColors.DeepInk} />
-      <View style={styles.beneficiariesListContent}>
-        <BeneficiariesListStyleButtons
+      <View style={styles.MoviesListContent}>
+        <MoviesListStyleButtons
           isSelectedStyleGrid={isSelectedStyleGrid}
           setGridStyle={setGridStyle}
           setListStyle={setListStyle}
@@ -40,15 +40,15 @@ const BeneficiariesListHeader = ({
   );
 };
 
-export default BeneficiariesListHeader;
+export default MoviesListHeader;
 
 const styles = StyleSheet.create({
-  beneficiariesListHeader: {
+  MoviesListHeader: {
     marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  beneficiariesListContent: {
+  MoviesListContent: {
     flexDirection: 'row',
     columnGap: 8,
   },

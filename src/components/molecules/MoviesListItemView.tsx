@@ -11,53 +11,51 @@ import PropBasedIcon from '../atoms/PropBasedIcon';
 import {Colors} from '../../../constants/Colors';
 
 // Navigation
-import {Beneficiary} from '../../navigation/BeneficiariesStackNavigator';
+import {Moviesy} from '../../navigation/MoviesStackNavigator';
 
 // Theme Context
 import {ThemeContext} from '../../context/ThemeContext';
 
-type BeneficiarListItemViewProps = {
-  beneficiaryItem: Beneficiary;
+type MoviesListItemViewProps = {
+  MoviesyItem: Moviesy;
 };
 
-const BeneficiarListItemView = ({
-  beneficiaryItem,
-}: BeneficiarListItemViewProps) => {
+const MoviesListItemView = ({MoviesyItem}: MoviesListItemViewProps) => {
   const {theme} = useContext(ThemeContext);
   let activeColors = (Colors as any)[theme.mode];
 
   return (
     <Pressable
       style={[
-        styles.beneficiarListItemContainer,
+        styles.MoviesListItemContainer,
         {
           backgroundColor: activeColors.PureWhite,
           shadowColor: activeColors.MidnightBlack,
         },
       ]}>
       <Image
-        source={{uri: beneficiaryItem.Poster}}
+        source={{uri: MoviesyItem.Poster}}
         style={[
-          styles.beneficiarListItemImage,
+          styles.MoviesListItemImage,
           {
             shadowColor: activeColors.MidnightBlack,
           },
         ]}
       />
-      <View style={styles.beneficiarListItemDetailsContainer}>
+      <View style={styles.MoviesListItemDetailsContainer}>
         <Text
           style={[
-            styles.beneficiarListItemName,
+            styles.MoviesListItemName,
             {
               color: activeColors.DeepInk,
             },
           ]}>
-          {beneficiaryItem.Title}
+          {MoviesyItem.Title}
         </Text>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={[
-              styles.beneficiarListItemIconContainer,
+              styles.MoviesListItemIconContainer,
               {
                 backgroundColor: activeColors.MidnightBlack,
               },
@@ -71,7 +69,7 @@ const BeneficiarListItemView = ({
           </View>
           <Text
             style={[
-              styles.beneficiarListItemDetail,
+              styles.MoviesListItemDetail,
               {
                 color: activeColors.SlateGrey,
               },
@@ -82,7 +80,7 @@ const BeneficiarListItemView = ({
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={[
-              styles.beneficiarListItemIconContainer,
+              styles.MoviesListItemIconContainer,
               {
                 backgroundColor: activeColors.MidnightBlack,
               },
@@ -96,7 +94,7 @@ const BeneficiarListItemView = ({
           </View>
           <Text
             style={[
-              styles.beneficiarListItemDetail,
+              styles.MoviesListItemDetail,
               {
                 color: activeColors.SlateGrey,
               },
@@ -109,10 +107,10 @@ const BeneficiarListItemView = ({
   );
 };
 
-export default BeneficiarListItemView;
+export default MoviesListItemView;
 
 const styles = StyleSheet.create({
-  beneficiarListItemContainer: {
+  MoviesListItemContainer: {
     flexDirection: 'row',
     borderRadius: 18,
     shadowOffset: {width: 0, height: 1},
@@ -123,7 +121,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 1,
     marginVertical: 2,
   },
-  beneficiarListItemImage: {
+  MoviesListItemImage: {
     shadowOffset: {width: 2, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 18,
@@ -132,16 +130,16 @@ const styles = StyleSheet.create({
     width: 59,
     height: 59,
   },
-  beneficiarListItemDetailsContainer: {
+  MoviesListItemDetailsContainer: {
     marginLeft: 10,
     rowGap: 4,
   },
-  beneficiarListItemName: {
+  MoviesListItemName: {
     fontFamily: 'Roboto Bold',
     fontSize: 14,
     lineHeight: 16.41,
   },
-  beneficiarListItemIconContainer: {
+  MoviesListItemIconContainer: {
     width: 15,
     height: 15,
     borderRadius: 100,
@@ -149,7 +147,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  beneficiarListItemDetail: {
+  MoviesListItemDetail: {
     fontFamily: 'Roboto Regular',
     fontSize: 12,
     lineHeight: 14.06,

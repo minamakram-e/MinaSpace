@@ -14,56 +14,56 @@ import {Colors} from '../../../constants/Colors';
 
 // Components
 import SwipeView from '../atoms/SwipeView';
-import BeneficiarListItemView from './BeneficiarListItemView';
+import MoviesListItemView from './MoviesListItemView';
 
 // Navigation
-import {Beneficiary} from '../../navigation/BeneficiariesStackNavigator';
+import {Moviesy} from '../../navigation/MoviesStackNavigator';
 
 // Theme Context
 import {ThemeContext} from '../../context/ThemeContext';
 import PropBasedIcon from '../atoms/PropBasedIcon';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
-type BeneficiarListItemProps = {
-  beneficiaryItem: ListRenderItemInfo<Beneficiary>;
+type MoviesListItemProps = {
+  MoviesyItem: ListRenderItemInfo<Moviesy>;
 };
 
-const BeneficiarListItem = ({beneficiaryItem}: BeneficiarListItemProps) => {
+const MoviesListItem = ({MoviesyItem}: MoviesListItemProps) => {
   const {theme} = useContext(ThemeContext);
   let activeColors = (Colors as any)[theme.mode];
 
   return (
     <Pressable
       style={[
-        styles.beneficiarListItemContainer,
+        styles.MoviesListItemContainer,
         {
           backgroundColor: activeColors.PureWhite,
           shadowColor: activeColors.MidnightBlack,
         },
       ]}>
       <Image
-        source={{uri: beneficiaryItem.Poster}}
+        source={{uri: MoviesyItem.Poster}}
         style={[
-          styles.beneficiarListItemImage,
+          styles.MoviesListItemImage,
           {
             shadowColor: activeColors.MidnightBlack,
           },
         ]}
       />
-      <View style={styles.beneficiarListItemDetailsContainer}>
+      <View style={styles.MoviesListItemDetailsContainer}>
         <Text
           style={[
-            styles.beneficiarListItemName,
+            styles.MoviesListItemName,
             {
               color: activeColors.DeepInk,
             },
           ]}>
-          {beneficiaryItem.Title}
+          {MoviesyItem.Title}
         </Text>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={[
-              styles.beneficiarListItemIconContainer,
+              styles.MoviesListItemIconContainer,
               {
                 backgroundColor: activeColors.MidnightBlack,
               },
@@ -77,18 +77,18 @@ const BeneficiarListItem = ({beneficiaryItem}: BeneficiarListItemProps) => {
           </View>
           <Text
             style={[
-              styles.beneficiarListItemDetail,
+              styles.MoviesListItemDetail,
               {
                 color: activeColors.SlateGrey,
               },
             ]}>
-            Year {beneficiaryItem.Year}
+            Year {MoviesyItem.Year}
           </Text>
         </View>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={[
-              styles.beneficiarListItemIconContainer,
+              styles.MoviesListItemIconContainer,
               {
                 backgroundColor: activeColors.MidnightBlack,
               },
@@ -102,12 +102,12 @@ const BeneficiarListItem = ({beneficiaryItem}: BeneficiarListItemProps) => {
           </View>
           <Text
             style={[
-              styles.beneficiarListItemDetail,
+              styles.MoviesListItemDetail,
               {
                 color: activeColors.SlateGrey,
               },
             ]}>
-            Type {beneficiaryItem.Type}
+            Type {MoviesyItem.Type}
           </Text>
         </View>
       </View>
@@ -115,7 +115,7 @@ const BeneficiarListItem = ({beneficiaryItem}: BeneficiarListItemProps) => {
   );
 };
 const styles = StyleSheet.create({
-  beneficiarListItemContainer: {
+  MoviesListItemContainer: {
     flexDirection: 'row',
     borderRadius: 18,
     shadowOffset: {width: 0, height: 1},
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 1,
     marginVertical: 2,
   },
-  beneficiarListItemImage: {
+  MoviesListItemImage: {
     shadowOffset: {width: 2, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 18,
@@ -135,16 +135,16 @@ const styles = StyleSheet.create({
     width: 59,
     height: 59,
   },
-  beneficiarListItemDetailsContainer: {
+  MoviesListItemDetailsContainer: {
     marginLeft: 10,
     rowGap: 4,
   },
-  beneficiarListItemName: {
+  MoviesListItemName: {
     fontFamily: 'Roboto Bold',
     fontSize: 14,
     lineHeight: 16.41,
   },
-  beneficiarListItemIconContainer: {
+  MoviesListItemIconContainer: {
     width: 15,
     height: 15,
     borderRadius: 100,
@@ -152,11 +152,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  beneficiarListItemDetail: {
+  MoviesListItemDetail: {
     fontFamily: 'Roboto Regular',
     fontSize: 12,
     lineHeight: 14.06,
     marginLeft: 6,
   },
 });
-export default BeneficiarListItem;
+export default MoviesListItem;
