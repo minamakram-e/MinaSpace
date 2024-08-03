@@ -21,6 +21,7 @@ import {UserContext} from '../../context/UserContext';
 
 // Navigation
 import {RootStackParamList} from '../../navigation/MainStackNavigator';
+import {saveLoginState} from '../../config/asyncStorage';
 
 const loginValidationSchema = yup.object().shape({
   username: yup.string(),
@@ -57,8 +58,9 @@ const LoginForm = ({navigation}: LoginFormProps) => {
       validateOnMount={false}
       initialErrors={initialValues}
       validateOnChange={true}
-      onSubmit={values => {
+      onSubmit={async values => {
         setUser({userName: values.username, mobileNumber: user.mobileNumber});
+        await saveLoginState(true);
         navigation.replace('HomePage');
       }}
       validationSchema={loginValidationSchema}>

@@ -13,6 +13,7 @@ import BeneficiarGridItem from '../molecules/BeneficiarGridItem';
 import BeneficiarListItem from '../molecules/BeneficiarListItem';
 import TabScreenWrapper from '../organisms/TabScreenWrapper';
 import BeneficiariesListHeader from '../organisms/BeneficiariesListHeader';
+import {clearLoginState} from '../../config/asyncStorage';
 type HomeScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'HomePage'>;
 };
@@ -35,6 +36,11 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
         setLoading(false);
       });
   }, []);
+
+  const handleLogout = async () => {
+    await clearLoginState();
+    navigation.replace('Login');
+  };
 
   let screenContent;
   if (moviesList?.length === 0) {
@@ -76,7 +82,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
         <Text style={styles.bigT}>Home</Text>
         <TouchableOpacity
           style={styles.logoutBtn}
-          onPress={() => navigation.replace('Login')}>
+          onPress={() => handleLogout()}>
           <Text style={styles.logoutText}>Logout</Text>
           <PropBasedIcon
             color={Colors.GrayishSilver}
