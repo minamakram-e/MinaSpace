@@ -61,7 +61,7 @@ const LoginForm = ({navigation}: LoginFormProps) => {
       validateOnChange={true}
       onSubmit={values => {
         setUser({userName: values.username, mobileNumber: user.mobileNumber});
-        navigation.replace('Drawer');
+        navigation.replace('HomePage');
       }}
       validationSchema={loginValidationSchema}>
       {({errors, handleSubmit, handleChange, values, isValid}) => (
